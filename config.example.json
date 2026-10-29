@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "state": "/var/lib/firmware-update-checker",
+  "metrics": "/var/lib/node_exporter/textfile_collector/firmware-update-checker.prom",
+  "test_image": "local/firmware-tests:maintained",
+  "minimum_free_bytes": 5368709120,
+  "dependencies": {
+    "idf": {
+      "repository": "espressif/esp-idf",
+      "version": "v5.5.5",
+      "image": "espressif/idf@sha256:a9231d0697ab8f7517cc072e93b7c83e04907bfbfba80b6440d7dbbf90665cf2",
+      "support_until": "2028-01-21",
+      "support_source": "ESP-IDF v5.5 released 2025-07-21; documented 30-month support"
+    },
+    "esphome": {
+      "repository": "esphome/esphome",
+      "version": "2026.10.0",
+      "image": "ghcr.io/esphome/esphome@sha256:1dff19a59070cdb523b76576cdc74d200f862d43c1407809088855920cf57145",
+      "latest_stable_only": true
+    }
+  },
+  "profiles": [
+    {
+      "id": "dfm",
+      "framework": "esp-idf",
+      "source": "/opt/repos/airscape-dfm-firmware",
+      "dependency": "idf"
+    }
+  ],
+  "test_image_tag": "local/firmware-tests:maintained",
+  "isolate_online_builds": true,
+  "notifications": {
+    "enabled": false,
+    "to": [
+      "operator@example.invalid"
+    ],
+    "from": "firmware-update-checker@example.invalid",
+    "check_stale_seconds": 691200,
+    "build_stale_seconds": 691200
+  }
+}

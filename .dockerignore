@@ -1,0 +1,11 @@
+# Host-test image builds need only the Dockerfile; keep private data out.
+.git
+__pycache__
+.ruff_cache
+config.json
+private
+*.env
+*.key
+*.pem
+*.log
+artifacts

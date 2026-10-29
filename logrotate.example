@@ -1,0 +1,10 @@
+/var/log/firmware-update-checker/runner.log {
+  su root adm
+  daily
+  rotate 14
+  compress
+  delaycompress
+  missingok
+  notifempty
+  create 0640 root adm
+}

@@ -1,0 +1,6 @@
+# Integration example for the root crontab (host timezone must be verified).
+# Docker maintenance must succeed before firmware checks and test builds run.
+# This replaces the existing Monday Docker job; do not install a second copy.
+0 9 * * MON ionice -c3 nice -n 19 /opt/repos/scripts/script_monitor.py /opt/repos/docker/run-monday-maintenance.sh
+# Standalone option for hosts without the Docker maintenance repository:
+# 0 9 * * MON /opt/repos/firmware-update-checker/run-weekly.sh >> /var/log/firmware-update-checker/runner.log 2>&1

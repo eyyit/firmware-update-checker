@@ -1,0 +1,10 @@
+__pycache__/
+.ruff_cache/
+*.pyc
+/config.json
+/private/
+*.env
+*.key
+*.pem
+*.log
+/artifacts/
